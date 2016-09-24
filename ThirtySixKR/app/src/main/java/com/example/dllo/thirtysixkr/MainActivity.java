@@ -31,6 +31,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         vp = bindView(R.id.main_vp);
         tb = bindView(R.id.main_tb);
         fragments.add(new NewsFragment());
@@ -63,6 +68,19 @@ public class MainActivity extends BaseActivity {
         tb.getTabAt(3).setIcon(R.drawable.selector_message);
         tb.getTabAt(4).setIcon(R.drawable.selector_mine);
         tb.setSelectedTabIndicatorColor(Color.WHITE);
+
+//        SendGetRequest.sendGetRequest("http://www.baidu.com", NewsBean.class, new SendGetRequest.OnResponseListener<NewsBean>() {
+//            @Override
+//            public void onResponse(NewsBean response) {
+//
+//            }
+//
+//            @Override
+//            public void onError() {
+//
+//            }
+//        });
+
 
     }
 }

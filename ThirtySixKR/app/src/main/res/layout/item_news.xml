@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/iv_item_news"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="10dp"
         android:src="@mipmap/ic_launcher"/>
 
     <LinearLayout
@@ -22,7 +22,9 @@
             android:id="@+id/tv_item_title"
             android:text="标题"
             android:layout_marginTop="6dp"
-            android:textSize="20sp"/>
+            android:textSize="15sp"
+            android:textColor="#111"
+            />
        <RelativeLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
@@ -30,21 +32,21 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:id="@+id/tv_item_name"
-               android:text="wheele"
+               android:textSize="10sp"
                android:layout_marginTop="15dp"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:id="@+id/tv_item_time"
                android:layout_alignBottom="@id/tv_item_name"
-               android:text="123"
+               android:textSize="10sp"
                android:layout_toRightOf="@id/tv_item_name"
                android:layout_marginLeft="8dp"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:id="@+id/tv_item_source"
-               android:text="55"
+               android:textSize="10sp"
                android:layout_alignParentRight="true"
                android:layout_alignBottom="@id/tv_item_name"
                android:layout_marginRight="10dp" />

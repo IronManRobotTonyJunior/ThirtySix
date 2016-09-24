@@ -60,4 +60,10 @@
         android:id="@+id/tv_research"
         android:text="研究"
         android:padding="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_kr_tv"
+        android:text="氪TV"
+        android:padding="10dp"/>
 </LinearLayout>

@@ -9,19 +9,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.thirtysixkr.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NewsAdapter extends BaseAdapter {
     Context context;
-    ArrayList<NewsBean> beans;
+    List<NewsBean.Data.DataBean> beans;
 
     public NewsAdapter(Context context) {
         this.context = context;
+        this.beans = new ArrayList<>();
     }
 
-    public void setBeans(ArrayList<NewsBean> beans) {
-        this.beans = beans;
+    public void setBeans(List<NewsBean.Data.DataBean> beans) {
+        this.beans.clear();
+        this.beans.addAll(beans);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -50,6 +55,12 @@ public class NewsAdapter extends BaseAdapter {
         else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
+        NewsBean.Data.DataBean bean = beans.get(position);
+        Picasso.with(context).load(bean.getFeatureImg()).into(viewHolder.ivItem);
+        viewHolder.tvName.setText(bean.getUser().getName());
+        viewHolder.tvTitle.setText(bean.getTitle());
+        viewHolder.tvSource.setText(bean.getColumnName());
+        viewHolder.tvTime.setText(FormatTime.formatTime(bean.getPublishTime()));
         return convertView;
     }
     class ViewHolder{

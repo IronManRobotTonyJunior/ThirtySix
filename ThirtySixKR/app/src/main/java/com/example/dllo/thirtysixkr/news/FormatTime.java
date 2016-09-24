@@ -7,22 +7,21 @@ public class FormatTime {
     private static long timeMillis;
     static String returnTime;
     static long subtractTime;
+    private static SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
-    public static String formatTime(String mTime) {
+    public static String formatTime(long mTime) {
         timeMillis = Calendar.getInstance().getTimeInMillis();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
         String nowTimeDay = format.format(timeMillis).substring(8, 10);
-        String inTimeDay = format.format(Long.parseLong(mTime)).substring(8, 10);
-        String inTime = format.format(Long.parseLong(mTime));
+        String inTimeDay = format.format(mTime).substring(8, 10);
+        String inTime = format.format(mTime);
         switch (Integer.parseInt(nowTimeDay) - Integer.parseInt(inTimeDay)) {
             case 0:
                 // 今天的时间判断是否大于一小时
-                subtractTime = (timeMillis - Long.parseLong(mTime)) / 60;
+                subtractTime = (timeMillis - mTime) / 1000 / 60;
                 if (subtractTime < 60) {
                     returnTime = subtractTime + "分钟前";
-                }
-                else {
-                    returnTime = inTime.substring(11,16);
+                } else {
+                    returnTime = inTime.substring(11, 16);
                 }
                 break;
             case 1:
@@ -32,7 +31,7 @@ public class FormatTime {
                 returnTime = "前天";
                 break;
             default:
-                returnTime = inTime.substring(5,10);
+                returnTime = inTime.substring(5, 10);
                 break;
         }
         return returnTime;
